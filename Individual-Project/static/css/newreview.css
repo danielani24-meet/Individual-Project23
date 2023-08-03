@@ -1,0 +1,24 @@
+.rating {
+    display: flex;
+    align-items: center;
+}
+
+.rating input[type="radio"] {
+    display: none;
+}
+
+.rating label {
+    color: #ccc;
+    font-size: 28px;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+}
+
+.rating label i {
+    transition: color 0.3s;
+}
+
+.rating input[type="radio"]:checked ~ label {
+    color: #ffdd00;
+}

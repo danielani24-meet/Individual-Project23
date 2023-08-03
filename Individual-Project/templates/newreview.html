@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/newreview.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <form action="/newreview" method="POST" enctype="multipart/form-data">
+        <div>
+            <label> The Cafe's Name</label>
+            <input type="text" name="cafesname" >
+        </div>
+
+        <fieldset>
+         <legend> Rate Out of 5</legend>
+         <div class = "rating">
+                <input type="radio" id="star5" name="rating" value="5" />
+                <label for="star5"><i class="fas fa-star"></i></label>
+
+                <input type="radio" id="star4" name="rating" value="4" />
+                <label for="star4"><i class="fas fa-star"></i></label>
+
+                <input type="radio" id="star3" name="rating" value="3" />
+                <label for="star3"><i class="fas fa-star"></i></label>
+
+                <input type="radio" id="star2" name="rating" value="2" />
+                <label for="star2"><i class="fas fa-star"></i></label>
+
+                <input type="radio" id="star1" name="rating" value="1" />
+                <label for="star1"><i class="fas fa-star"></i></label>
+            </div>
+        </fieldset>
+
+            <div>
+                <label for="photo">Photo:</label>
+                <input type="file" id="photo" name = "photo" accept="image/*" required>
+            </div>
+
+
+       
+
+
+        <input type="text" name="text" placeholder="Text" maxlength="280">
+
+        <input type="submit"/>
+    </form>
+
+</body>
+</html>
