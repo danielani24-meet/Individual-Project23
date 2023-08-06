@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, redirect, url_for, flash
 from flask import session as login_session
 import pyrebase
 import os
+import sqlite3
 
 config = {
   "apiKey": "AIzaSyA8zoHzeFhM63KAv8eQYHqEfxvcfVdWXLM",
@@ -84,12 +85,13 @@ def signin():
         password = request.form['password']
         login_session['user'] = auth.sign_in_with_email_and_password(email, password)
         return redirect(url_for('all_reviews'))
-    return render_template("signin.html")
+    else:
+       return render_template("signin.html")
 
 @app.route('/main')
 def all_reviews():
-    reviews = db.child("Reviews").get().val()
-    return render_template("main.html", reviews = reviews)
+    Reviews = db.child("Reviews").get().val()
+    return render_template("main.html", Reviews = Reviews)
     #????
 #def display():
  #   parent_ref = db.reference('parent_node').get().val()
@@ -101,16 +103,25 @@ def all_reviews():
 def new_review():
     error = ""
     if request.method == 'POST':
-        # try:  
-        UID = login_session['user']['localId']
-        photo= request.files['photo']
-        review = {"cafesname":request.form['cafesname'], "photo":photo.filename}
-        db.child("Reviews").push(review)
-        return redirect(url_for('new_review'))
+        try:  
+            UID = login_session['user']['localId']
+            photo= request.files['photo']
+            #???
+            # rating = int(request.form['rating'])
 
-        # except:
-        #     error = "Authentication failed"
-        #     return render_template("newreview.html")
+            # conn = sqlite3.connect('ratings.db')
+            # c = conn.cursor()
+            # c.execute("INSERT INTO ratings (rating) VALUES (?)", (rating,))
+            # conn.commit()
+            # conn.close()
+            #???
+            review = {"cafesname":request.form['cafesname'],  "photo":photo.filename}
+            db.child("Reviews").push(review)
+            return redirect(url_for('all_reviews'))
+
+        except:
+            error = "Authentication failed"
+            return render_template("newreview.html")
     else:
         return render_template("newreview.html")
 

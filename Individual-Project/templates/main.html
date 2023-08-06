@@ -1,34 +1,25 @@
-<h1> Hotel Map </h1>
-<h2> Search for The Best Coffee Shop for YOU!!</h2>
-<!--
-<a href="/newreview">create a new review</a>
-{% for child_node, child_data in data.items() %}
-    <h2>{{ child_node }}</h2>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+
+</head>
+<body>
+	  <nav>
     <ul>
-        {% for key, value in child_data.items() %}
-            <li>{{ key }}: {{ value }}</li>
-        {% endfor %}
+      <li><a href="/main">Main</a></li>
+      <li><a href="/newreview">New Review</a></li>
     </ul>
-{% endfor %} -->
-<!--
-<ul id="parentList">
-	<li>Child 1</li>
-	<li>Child 2</li>
-	<li>Child 3</li>
-</ul>
--->
-<!-- Add a button to add a new child node -->
+  </nav>
+    <h1> find the perfect coffee shop exactly for you!! </h1>
 
-<!--
-<button onclick="addChild()">Add Child Node</button>
+    {% for review in Reviews %}
+    	<h4> Review for: {{Reviews[review]['cafesname']}} </h4>
+    	<a href="{{url_for(Reviews[review]['photo'])}}" ></a>
+    {% endfor %}
 
-<script>
-// JavaScript function to add a new child node
-	function addChild() {
-	  const parentList = document.getElementById("parentList");
-	  const newChild = document.createElement("li");
-	  newChild.textContent = "New Child";
-	  parentList.appendChild(newChild);
-	}
-</script>
--->
+
+</body>
+</html>

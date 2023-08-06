@@ -1,0 +1,82 @@
+/* Reset some default styles */
+body, h4, p, form, input, label, a {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif; /* Change font to Roboto */
+}
+
+/* Basic styles for the form */
+form {
+  max-width: 350px; /* Smaller container width */
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  background-color: #f7f7f7; /* Light gray background */
+}
+
+h4 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: #007f4c; /* Green color */
+}
+
+p {
+  font-size: 14px;
+  margin-bottom: 30px; /* Increase the margin to create more distance */
+  color: #444; /* Dark gray color */
+}
+
+/* Styles for form fields and labels */
+label {
+  display: block;
+  margin-bottom: 5px;
+  color: #007f4c; /* Green color for labels */
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  padding: 12px; /* Increase the padding to make edges bigger */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+
+input[type="submit"] {
+  background-color: #007f4c; /* Green button background */
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background-color: #00582d; /* Darker green on hover */
+}
+
+a {
+  display: block;
+  margin-top: 20px;
+  text-align: center;
+  color: #007f4c; /* Green color for the link */
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Additional styles for specific elements */
+body {
+  background-color: #e5efe0; /* Light green background for the entire page */
+}
+
+/* Add a brown border around the form */
+form {
+  border: 1px solid #8b5a2b; /* Brown color */
+}
+
