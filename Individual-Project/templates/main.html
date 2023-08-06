@@ -15,9 +15,12 @@
   </nav>
     <h1> find the perfect coffee shop exactly for you!! </h1>
 
+
     {% for review in Reviews %}
     	<h4> Review for: {{Reviews[review]['cafesname']}} </h4>
-    	<a href="{{url_for(Reviews[review]['photo'])}}" ></a>
+    	<img src="{{Reviews[review]['photo']}}">
+      <!-- <img src="data:image/jpeg;base64,{{Reviews[review]['photo']}}" alt="My Photo"> -->
+      <p> {{Reviews[review]['text']}} </p>
     {% endfor %}
 
 

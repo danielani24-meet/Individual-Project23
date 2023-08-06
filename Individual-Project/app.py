@@ -3,6 +3,7 @@ from flask import session as login_session
 import pyrebase
 import os
 import sqlite3
+import base64
 
 config = {
   "apiKey": "AIzaSyA8zoHzeFhM63KAv8eQYHqEfxvcfVdWXLM",
@@ -115,7 +116,7 @@ def new_review():
             # conn.commit()
             # conn.close()
             #???
-            review = {"cafesname":request.form['cafesname'],  "photo":photo.filename}
+            review = {"cafesname":request.form['cafesname'], "photo":photo.filename, "text":request.form['text']}
             db.child("Reviews").push(review)
             return redirect(url_for('all_reviews'))
 
